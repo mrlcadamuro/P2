@@ -1,0 +1,48 @@
+CREATE TABLE Categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nome_categoria VARCHAR(100)
+);
+
+CREATE TABLE Marcas (
+    id_marca INT AUTO_INCREMENT PRIMARY KEY,
+    nome_marca VARCHAR(100)
+);
+
+CREATE TABLE Produtos (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome_produto VARCHAR(100),
+    descricao_produto VARCHAR(255),
+    preco_produto DOUBLE,
+    estoque_produto INT,
+    id_categoria INT,
+    id_marca INT,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria),
+    FOREIGN KEY (id_marca) REFERENCES Marcas(id_marca)
+);
+
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome_cliente VARCHAR(100),
+    email_cliente VARCHAR(100),
+    telefone_cliente VARCHAR(20),
+    endereco_cliente VARCHAR(70)
+);
+
+CREATE TABLE Funcionários (
+    id_funcionario INT AUTO_INCREMENT PRIMARY KEY,
+    nome_funcionario VARCHAR(100), 
+    cargo_funcionario VARCHAR(50),
+    email_funcionario VARCHAR(100),
+    telefone_funcionario VARCHAR(20),
+    endereco_funcionario VARCHAR(70),
+    salario_funcionario DOUBLE,
+    data_contratacao_funcionario DATE
+);
+
+CREATE TABLE Fornecedores (
+    id_fornecedor INT AUTO_INCREMENT PRIMARY KEY,
+    nome_fornecedor VARCHAR(100),
+    email_fornecedor VARCHAR(100),
+    telefone_fornecedor VARCHAR(100),
+    endereco_fornecedor VARCHAR(70)
+);
